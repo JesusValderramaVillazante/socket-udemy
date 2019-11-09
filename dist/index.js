@@ -4,7 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const Server_1 = __importDefault(require("./classes/Server"));
-const server = new Server_1.default();
+const router_1 = __importDefault(require("./routes/router"));
+let server = new Server_1.default();
+server.app.use('/', router_1.default);
 server.start(() => {
-    console.log(`Servidor corriendo en el puerto ${server.port}`);
+    console.log("escuchando");
 });

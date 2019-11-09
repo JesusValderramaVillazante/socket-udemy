@@ -1,7 +1,9 @@
 import Server from "./classes/Server";
+import router from "./routes/router";
 
-const server = new Server();
+let server = new Server();
+server.app.use('/', router);
 
-server.start(()=>{
-    console.log(`Servidor corriendo en el puerto ${server.port}`);
-})
+server.start(() => {
+    console.log("escuchando");
+});

@@ -3,7 +3,7 @@ import { SERVER_PORT } from '../global/environment';
 
 //exportar paquete por defecto
 export default class Server{
-    private app: express.Application;
+    public app: express.Application;
     public port: number;
 
     constructor(){
@@ -12,6 +12,6 @@ export default class Server{
     };
 
     public start(callback: Function){
-        this.app.listen(callback);
+        this.app.listen(this.port, callback() );
     }
 }
